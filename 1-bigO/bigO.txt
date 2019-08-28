@@ -1,0 +1,186 @@
+BIG O NOTATION
+
+a way to represent the efficiency of code
+allows us to talk about how the runtime of an algoritm 
+grows as the inputs grow. Count the number of operations to 
+get an idea about the broad trend
+
+formal defintiion -
+  We say that an algoritm is O(f(n)) if the number of simple operations
+  the computer has to do is eventually less than a constant
+  times f(n), as n increases
+
+  so 5n +2 operations simplifys to O(n) because its roughly linear 
+  increase of n operations that occur
+
+  where as 3 operations simplifies to O(1) since it happens one time an never changes
+
+// Performance Test Function based on Timing // Problematic
+function timeElapsed(func, arg) {
+  let t1 = performance.now();
+  func(arg);
+  let t2 = performance.now();
+  console.log(`Time elapsed ${(t1 - t2) / 1000} seconds`);
+  /* 
+  this function can be used to measure how long it takes 
+  for a function to run, but it has problems, there will be
+  a slightly different result every time you run it. It may also not
+  be precise enough to properly measure some algorithms.
+  */
+  /* Instead it is better tocount the number of simple operations that 
+    the computer must perform because this is constant 
+   */
+}
+
+// Add all values up to but not including argument input number
+// version 1
+function addUpTo(n) {
+  let total = 0;
+  for (let i = 0; i <= n; i++) {
+    total += i;
+  }
+  return total;
+}
+timeElapsed(addUpTo, 1000000000);
+
+// version 2
+function addUpToV2(n) {
+  return (n * (n + 1)) / 2;
+}
+timeElapsed(addUpToV2, 1000000000);
+
+//BIG O counts the number of operations
+//======== EXAMPLE 1 ==========
+/*
+addUpToV2
+n * (n + 1)) / 2
+operations -> * + /
+
+there are 3 operations total
+
+addUpTo(n)
+for (let i = 0; i <= n; i++){ total += i }
+the number of operations 
++=          n additons and
+            n assignments * i
+i++         n additions and 
+            n assignments * i
+total = 0   1 assignment
+i =1        1 assignment
+i <= n      n * i comparisons
+
+approx: (5n +2) operations occur for addUpTo(n)
+
+
+because the computer is doing a loop and will carry out the +
+operation each for each i. 
+This means addUpTo(n) will do n operations
+
+the = is an assignment and will also take time
+( but usually the operations are the focus for Big O notation)
+there are different ways of counting it and its more important to 
+be consistent the focus is on the trend.
+For the two functions above the number of operations grows based on n
+for the first but doesnt grow for the second
+
+addUpTo     = 5n+2 operations O(n)
+addUpToV2   = 3 operations    O(1)
+
+
+
+
+//======== EXAMPLE 2 ==========
+nested for loop
+
+function printAllPairs(n) {
+  for(let i= 0; i< n; i++){
+    for(let j = 0; j < n; j++)
+    console.log(i,j)
+  }
+}
+O(n) for loop 1 
+O(n) for loop 2 
+because for loop 2 is nested inside for loop 1 
+the result is O(n*n) or 
+O(n^2)
+
+
+
+==============RULES OF THUMB=====================
+Constants dont matter
+O(2n +100) simplifies to O(n)
+
+O(12n^2) simplifies to O(n^2)
+
+O((n^2)+ 5n + 8) simplifies to O(n^2)
+
+1) arithmetic operations are constant
+2) variable assignment is constant
+3) Accessing elements in an array(by index) or object(by key) is constant
+4) in a loop, the complexity is the length of the loop times
+    the complexity of whatever happens inside of the loop
+
+
+
+
+
+//////////////// SPACE COMPLEXITY ////////////////
+how much memory will the algorithm take up when it is run. This
+is also reffered to as "auxiliary space"
+
+most primitives are constant space (booleans, undefined, null)
+
+strings require O(n) space (where n is string length);
+
+reference types are usually O(n) where n is the length( for arrays) or
+the number of keys( for objects)
+
+
+========== Space Complexity Example 1 ==========
+function sum(arr) {
+  let total = 0
+  for(let i = 0; i < arr.length; i++){
+    total += arr[i]
+  }
+  return total
+}
+
+total  is a single constant
+i      is a single constant
+
+so thte space complexity is O(1)
+
+
+========== Space Complexity Example 2 ==========
+function double(arr) {
+  let newArr = []
+  for(let i = 0; i < arr.length; i++){
+    newArr.push(2* arr[i])
+  }
+  return newArr
+}
+
+newArr.push(2*arr[i]) is an array of length n
+i                     is a constant
+
+so thte space complexity is O(n)
+ */
+
+//////////////// BIG O with Logarithms  ////////////////
+ log is the inverse of exponentiation
+
+ log2(8) = 3 ----> 2^3 = 8 (note the log2 -> the 2 should be subscript)
+log base 2 of 8 = 3
+ what power does 2 need to be raised to get 8
+
+
+ for Big O we usually ignore the base and just say log
+
+ O(log) 
+ O(log n)
+ O(nlog n)
+
+ ============== where are Logarithms used in Big O? =============
+1) certain searching algorithms have logarithmic time complexity
+2) efficient sorting algorithms involve Logarithms
+3) recursion sometimes involves logarithmic space complexity
