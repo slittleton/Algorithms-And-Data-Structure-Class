@@ -1,0 +1,15 @@
+
+1) understand the problem. Ask about the problem. What kinds of
+returns are desired, what kind of inputs are accepted.
+Does it take arguments that are strings or an array or object, etc.
+
+2) Write examples of inputs and expected outputs. Start simple
+got to more complex. Also check for unacceptable inputs like empty
+input or wrong type.
+
+3) write some guide steps to set up an idea of how to work through
+the problem
+
+4) if you find a challenging part of the problem try to break it down
+
+5) refactor
