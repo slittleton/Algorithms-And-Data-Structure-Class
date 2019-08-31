@@ -48,3 +48,5 @@ function charCountV2(str) {
   return result;
 }
 
+
+
