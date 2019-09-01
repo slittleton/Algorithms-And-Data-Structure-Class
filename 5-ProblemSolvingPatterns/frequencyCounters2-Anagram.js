@@ -54,7 +54,7 @@ function validAnagram(str1, str2){
     }
     const lookup ={}
 
-    for(let i = 0; i< second.length;i++){
+    for(let i = 0; i< first.length;i++){
       let letter = first[i];
       //if letter exists, increment, otherwise set to 1
       lookup[letter] ? lookup[letter] += 1 : lookup[letter] = 1;
