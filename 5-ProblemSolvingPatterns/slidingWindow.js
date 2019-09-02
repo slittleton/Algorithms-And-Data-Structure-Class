@@ -76,5 +76,4 @@ function maxSubarraySumV2(arr, num) {
   }
   return maxSum;
 }
-//
-//
+
