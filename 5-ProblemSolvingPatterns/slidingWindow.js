@@ -70,10 +70,16 @@ function maxSubarraySumV2(arr, num) {
     maxSum += arr[i];
   }
 
-  for (let i = 0; i < num; i++) {
+  for (let i = num; i < arr.length; i++) {
     tempSum = tempSum - arr[i - num] + arr[i];
     maxSum = Math.max(maxSum, tempSum);
   }
   return maxSum;
 }
 
+let y;
+// y = maxSubarraySumV2([1,2,5,2,8,1,5],2) // 10
+y = maxSubarraySumV2([1, 2, 5, 2, 8, 1, 5], 4); // 17
+// y = maxSubarraySumV2([4,1,2,1,6],1) // 6
+// y = maxSubarraySumV2([],4) // null
+console.log(y);
