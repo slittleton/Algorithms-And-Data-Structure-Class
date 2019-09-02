@@ -46,7 +46,7 @@ let x;
 x = maxSubarraySum([1, 2, 5, 2, 8, 1, 5], 4); // 17
 // x = maxSubarraySum([4,1,2,1,6],1) // 6
 // x = maxSubarraySum([],4) // null
-console.log(x);
+// console.log(x);
 
 // ================= Refactor Solution O(n) =================
 /**
@@ -67,11 +67,20 @@ function maxSubarraySumV2(arr, num) {
   if (arr.length < num) return null;
 
   for (let i = 0; i < num; i++) {
+    // sets first window
     maxSum += arr[i];
   }
 
+  //set tempSum to first maxSum
+  // this will allow you to subtract the first window item from
+  // the current tempSum and then add the new window item
+  tempSum = maxSum;
+
   for (let i = num; i < arr.length; i++) {
+    // subtract first number in array (arr[i-num] = arr[num-num]) = 0
+    // then add next number outside window, (i starts at num)
     tempSum = tempSum - arr[i - num] + arr[i];
+    // if new tempSum is bigger than current max set it to max
     maxSum = Math.max(maxSum, tempSum);
   }
   return maxSum;
@@ -79,7 +88,7 @@ function maxSubarraySumV2(arr, num) {
 
 let y;
 // y = maxSubarraySumV2([1,2,5,2,8,1,5],2) // 10
-y = maxSubarraySumV2([1, 2, 5, 2, 8, 1, 5], 4); // 17
+y = maxSubarraySumV2([1, 2, 5, 2, 8, 1, 5, 1, 1, 1, 1, 1], 4); // 17
 // y = maxSubarraySumV2([4,1,2,1,6],1) // 6
 // y = maxSubarraySumV2([],4) // null
 console.log(y);
