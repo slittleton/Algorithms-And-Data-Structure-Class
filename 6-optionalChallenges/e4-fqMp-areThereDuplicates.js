@@ -27,6 +27,6 @@ let x;
 // x = areThereDuplicates(1,2,3); false
 x = areThereDuplicates(1, 2, 2); //true
 x = areThereDuplicates("a", "b", "c"); //false
-// x = areThereDuplicates("a", "b", "c", "a"); //true
+x = areThereDuplicates("a", "b", "c", "a"); //true
 
 console.log(x);

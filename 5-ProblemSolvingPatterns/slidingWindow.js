@@ -80,7 +80,7 @@ function maxSubarraySumV2(arr, num) {
     // subtract first number in array (arr[i-num] = arr[num-num]) = 0
     // then add next number outside window, (i starts at num)
     tempSum = tempSum - arr[i - num] + arr[i];
-    // if new tempSum is bigger than current max set it to max
+    // if new tempSum is bigger than current maxSum set it to maxSum
     maxSum = Math.max(maxSum, tempSum);
   }
   return maxSum;
