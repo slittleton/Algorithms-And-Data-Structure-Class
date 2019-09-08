@@ -1,7 +1,7 @@
 /**
  * Coding Exercise 17
  * Recursion - Harder Exercises
- * revers
+ * someRecursive
  *
  *
  * Write a recursive function called someRecursive which accepts an

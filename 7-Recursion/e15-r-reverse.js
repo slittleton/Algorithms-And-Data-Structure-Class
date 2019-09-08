@@ -1,7 +1,7 @@
 /**
  * Coding Exercise 15
  * Recursion - Harder Exercises
- * revers
+ * reverse
  *
  *
  * Write a recursive function called reverse which accepts a string
