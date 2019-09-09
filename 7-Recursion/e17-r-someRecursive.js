@@ -38,3 +38,10 @@ x = someRecursive([4, 6, 8, 9], isOdd); // true
 x = someRecursive([4, 6, 8], isOdd); // false
 x = someRecursive([4, 6, 8], val => val > 10); // false
 console.log(x);
+
+// Alternate Solution
+function someRecursiveV2(array, callback){
+  if(array.length === 0) return false;
+  if(callback(array[0])) return true;
+  return someRecursiveV2(array.slice(1), callback);
+}

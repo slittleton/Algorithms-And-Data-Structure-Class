@@ -1,7 +1,7 @@
 /**
- * Coding Exercise 19
+ * Coding Exercise 20
  * Recursion - Harder Exercises
- * capitalizeFirst
+ * nestedEvenSum
  *
  *
  * Write a recursive function called nestedEvenSum. Return the sum

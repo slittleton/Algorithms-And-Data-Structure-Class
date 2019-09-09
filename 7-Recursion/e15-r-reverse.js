@@ -25,6 +25,7 @@ function reverse(str) {
 // console.log(reverse("cat")); // 3
 // console.log(reverse("awesome")); // 55
 
+
 function reverseV2(str) {
   let result = "";
 
@@ -40,3 +41,12 @@ function reverseV2(str) {
 
 console.log(reverseV2("cat")); // 3
 console.log(reverseV2("awesome")); // 55
+
+
+
+
+// Alternate Solution ================================
+function reverseV3(str){
+  if(str.length <= 1) return str;
+  return reverseV3(str.slice(1)) + str[0]
+}
