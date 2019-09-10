@@ -10,14 +10,21 @@
  */
 
 function stringifyNumbers(obj) {
-  for(let prop in obj){
-    if(typeof obj[prop] === 'object'){
-      stringifyNumbers(obj[prop])
-    }else if(typeof obj[prop] === "number"){
-      obj[prop] = obj[prop].toString()
+  let newObj = {};
+
+  function helper(obj) {
+    for (let prop in obj) {
+      if (typeof obj[prop] === "object" && !Array.isArray(obj[key])) {
+       newObj[prop] =  stringifyNumbers(obj[prop]);
+      } else if (typeof obj[prop] === "number") {
+        newObj[prop] = obj[prop].toString();
+      } else {
+        newObj[prop] = obj[prop]
+      }
     }
   }
-  return obj
+  helper(obj);
+  return newObj;
 }
 
 let obj = {
@@ -32,9 +39,8 @@ let obj = {
   }
 };
 
-
 let x;
-x = stringifyNumbers(obj); // 
+x = stringifyNumbers(obj); //
 console.log(x);
 /* Expected output
 obj = {
