@@ -31,7 +31,7 @@ console.log(fib(10)); // 55
 
 
 // Alternate Solution
-function fibV2(){
+function fibV2(n){
   if(n<=2) return 1;
   return fib(n-1) + fib(n-2);
 }
