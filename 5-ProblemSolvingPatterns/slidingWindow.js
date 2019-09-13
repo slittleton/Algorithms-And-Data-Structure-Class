@@ -1,7 +1,7 @@
 /**
  * SLIDING WINDOW
  *
- * this patter involves creating a window which can either be
+ * this pattern involves creating a window which can either be
  * an array or number from one position to another
  * depending on a certain condition, the window either increases
  * or closes (and a new window is created)
@@ -12,7 +12,7 @@
 
 //////// Example //////////
 /**
- * write a function call maxSubarraySum which accepts an array of
+ * write a function called maxSubarraySum which accepts an array of
  * integers and a number called n. The function should calculate the
  * maximum sum of n consecutive elements in the array.
  */
