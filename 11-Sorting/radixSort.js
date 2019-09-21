@@ -18,6 +18,8 @@
 
 /**
  * Radix Sort
+ * 
+ * BigO  O(nk) where n = length of array and k = number of digits
  *
  * Special sorting algorithm that works on lists of numbers
  * It never makes comparisons between elements
