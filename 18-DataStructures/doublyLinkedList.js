@@ -39,9 +39,9 @@ class DoublyLinkedList {
     let newNode = new Node(val);
     if (!this.head) {
       this.head = newNode;
-      this.tail = this.head;
+      this.tail = newNode;
     }
-    if (this.head) {
+    else {
       this.tail.next = newNode;
       newNode.prev = this.tail;
       this.tail = newNode;
@@ -49,6 +49,7 @@ class DoublyLinkedList {
     this.length++;
     return this;
   }
+
   /**
    * pop pseudocode
    *
@@ -234,6 +235,32 @@ class DoublyLinkedList {
 
     return foundNode;
   }
+  /**
+   * reverse
+   * -  assign variable to head as current
+   * -  create next variable
+   * -  loop through list, flip next and prev of each node using 
+   *    next as a placeholder for keeping track of the next value
+   *      set next to next property of current
+   *      set next property of current to prev property of current
+   *      set prev property of current to next property of current
+   *      set current to next
+   * -  flip head and tail
+   * -  return list
+   */
+  reverse(){
+    
+    let current = this.head;
+    let next;
+    while(current !== null){
+      next = current.next
+      current.next = current.prev;
+      current.prev = current.next;
+      current = next;
+    }
+    [this.head, this.tail] = [this.tail, this.head];
+    return this;
+  }
 }
 
 let list = new DoublyLinkedList();
@@ -251,5 +278,6 @@ console.log("get", list.get(3));
 console.log("set", list.set(3, "z"));
 console.log("insert", list.insert(2, "y"));
 console.log("remove", list.remove(2));
+console.log("reverse", list.reverse());
 
 console.log(list);
