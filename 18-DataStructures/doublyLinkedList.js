@@ -40,8 +40,7 @@ class DoublyLinkedList {
     if (!this.head) {
       this.head = newNode;
       this.tail = newNode;
-    }
-    else {
+    } else {
       this.tail.next = newNode;
       newNode.prev = this.tail;
       this.tail = newNode;
@@ -236,10 +235,11 @@ class DoublyLinkedList {
     return foundNode;
   }
   /**
-   * reverse
+   * reverse pseudocode
+   * 
    * -  assign variable to head as current
    * -  create next variable
-   * -  loop through list, flip next and prev of each node using 
+   * -  loop through list, flip next and prev of each node using
    *    next as a placeholder for keeping track of the next value
    *      set next to next property of current
    *      set next property of current to prev property of current
@@ -248,12 +248,11 @@ class DoublyLinkedList {
    * -  flip head and tail
    * -  return list
    */
-  reverse(){
-    
+  reverse() {
     let current = this.head;
     let next;
-    while(current !== null){
-      next = current.next
+    while (current !== null) {
+      next = current.next;
       current.next = current.prev;
       current.prev = current.next;
       current = next;

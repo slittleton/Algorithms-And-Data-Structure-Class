@@ -161,13 +161,14 @@ class SinglyLinkedList {
     let newHead = new Node(val);
     if (!this.head) {
       this.head = newHead;
-      this.tail = this.head;
+      this.tail = newHead;
     } else {
       newHead.next = this.head;
       this.head = newHead;
       this.length++;
-      return this;
+      
     }
+    return this;
   }
   /**
    * Get
