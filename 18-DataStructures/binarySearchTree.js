@@ -14,7 +14,7 @@
  *    - edge: the connection between one node and another
  *
  * Binary Search Trees
- *    Big O   insert: O(log n)    search: O(log n)
+ *    Big O usually  insert: O(log n)    search: O(log n)
  * 
  * -  every parent nod has at most two children
  * -  every node to the left of the parent node is always less than the
