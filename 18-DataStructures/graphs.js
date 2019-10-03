@@ -212,7 +212,7 @@ class Graph {
   bfs(start) {
     const queue = [start];
     const result = [];
-    const visited = {[start]: true};
+    const visited = { [start]: true };
     let current;
 
     while (queue.length) {
@@ -248,3 +248,4 @@ graph.addEdge("c", "d");
 // console.log(graph.dfsRecursive("a"));
 console.log(graph.dfsIterative("a"));
 console.log(graph.bfs("a"));
+
