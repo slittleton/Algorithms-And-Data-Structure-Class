@@ -63,3 +63,90 @@ let y;
 y = searchV2([1, 3, 4, 6, 7, 9], 6); //5
 
 console.log(y);
+
+
+//============== ADDITONAL EXAMPLES ==============
+
+/**
+ * Count Zeros 
+ * 
+ * Given an array of 1s and 0s which has all 1s first followed by all 0s,
+ * write a function called count zeros, which returns the number of zeros
+ * in the array
+ */
+
+function countZeros(arr) {
+  let start = 0;
+  let end = arr.length - 1;
+  while (start <= end) {
+    let middle = Math.floor((start + end) / 2);
+    let current = arr[middle];
+
+    if (current === 1) {
+      start = middle + 1;
+    }
+    if (current === 0) {
+      end = middle - 1;
+    }
+
+  }
+  return arr.length - (end + 1);
+}
+console.log(countZeros([1, 1, 1, 1, 0, 0])); //2
+console.log(countZeros([1, 1, 1, 0])); //1
+console.log(countZeros([1, 0, 0, 0, 0, 0, 0])); //6
+console.log(countZeros([1, 1, 1, 1, 1, 0, 0, 0, 0, 0])); //5
+
+
+
+/**
+ *  Sorted Frequency
+ *
+ * Given a sorted array and a number, write a function called
+ * sortedFrequency that counts the occurences of the number in
+ * the array
+ */
+
+function sortedFrequency(arr, val) {
+  let first = findFirstOccurance(arr, val);
+  let last = findLastOccurance(arr, val) + 1;
+
+  return last - first;
+}
+console.log(sortedFrequency([1, 1, 1, 1, 1, 2, 2, 2, 3, 3], 2));
+
+function findFirstOccurance(arr, val) {
+  let start = 0;
+  let end = arr.length - 1;
+  let middle = Math.floor((start + end) / 2);
+
+  while (start < end - 1) {
+    if (arr[middle] < val) {
+      start = middle;
+    } else {
+      end = middle;
+    }
+
+    middle = Math.floor((start + end) / 2);
+  }
+  return end;
+}
+
+// console.log(findFirstOccurance([1, 1, 1, 1, 1, 2, 2, 3, 3], 2)); //index of 5
+
+function findLastOccurance(arr, val) {
+  let start = 0;
+  let end = arr.length - 1;
+  let middle = Math.floor((start + end) / 2);
+
+  while (start < end - 1) {
+    if (arr[middle] > val) {
+      end = middle;
+    } else {
+      start = middle;
+    }
+    middle = Math.floor((start + end) / 2);
+  }
+  return start;
+}
+// console.log(findLastOccurance([1, 1, 1, 1, 1, 2, 2, 3, 3], 2)); //index of 6
